@@ -6,12 +6,12 @@ return [
     |--------------------------------------------------------------------------
     | Email Confirmation
     |--------------------------------------------------------------------------
-    | 
-    | When set to true, the user must confirm his email before being able to 
+    |
+    | When set to true, the user must confirm his email before being able to
     | Login, after his registration.
-    | 
+    |
     */
-  
+
     'require_email_confirmation' => false,
 
     /*
@@ -40,8 +40,35 @@ return [
         // add your other clients here
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Login With Custom Field
+    |--------------------------------------------------------------------------
+    |
+    | This allows you to chose which field you want to use for passport auth.
+    |
+    */
 
     'login' => [
+
+        /*
+        |--------------------------------------------------------------------------
+        | Allowed Login Attributes
+        |--------------------------------------------------------------------------
+        |
+        | A list of fields the user can login with.
+        | The key is the field name. The value contains validation rules of the key.
+        |
+        | The order determines the order the fields are tested to login (in case multiple fields are submitted!
+        |
+        | Example: 'phone' => ['string', 'min:6', 'max:25'],
+        |
+        */
+
+        'attributes' => [
+            'email' => ['email'],
+        ],
+
         /*
         |--------------------------------------------------------------------------
         | Prefix
@@ -49,31 +76,12 @@ return [
         |
         | Use this $prefix variable in order to allow for nested elements.
         | For example, if your login fields are nested in "data.attributes.name / data.attributes.email"
-        | simply est the $prefix to "data.attributes." and you are good go to!
-        |
-        | Default: ''
+        | simply set the $prefix to "data.attributes."
         |
         */
+
         'prefix' => '',
 
-        /*
-        |--------------------------------------------------------------------------
-        | Allowed Login Attributes
-        |--------------------------------------------------------------------------
-        |
-        | A list of fields the user is allowed to login with.
-        | Thereby, the key is the fieldname, the value (array) contains additional validation parameters that are applied!
-        |
-        | The order determines the order the fields are tested to login (in case multiple fields are submitted!
-        |
-        | Default: ['email' => ['email']
-        |
-        */
-        'allowed_login_attributes' => [
-            'email' => ['email'],
-            // 'name' => [],
-            // 'phone' => ['string', 'min:6', 'max:25'],
-        ],
     ],
 
 ];

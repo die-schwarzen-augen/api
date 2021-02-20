@@ -34,7 +34,7 @@ class HttpKernel extends LaravelHttpKernel
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
 
       // CORS package middleware
-        \Barryvdh\Cors\HandleCors::class,
+        \Fruitcake\Cors\HandleCors::class,
     ];
 
     /**
@@ -92,7 +92,7 @@ class HttpKernel extends LaravelHttpKernel
     protected $middlewarePriority = [
       \Illuminate\Session\Middleware\StartSession::class,
       \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-      \App\Http\Middleware\Authenticate::class,
+      \App\Ship\Middlewares\Http\Authenticate::class,
       \Illuminate\Routing\Middleware\ThrottleRequests::class,
       \Illuminate\Session\Middleware\AuthenticateSession::class,
       \Illuminate\Routing\Middleware\SubstituteBindings::class,
